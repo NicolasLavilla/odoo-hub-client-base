@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_inherit_hub_client_base" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.hub_client_base</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="Catalog &amp; OCR Hub" string="Catalog &amp; OCR Hub" name="hub_client_base" groups="base.group_system">
+                    <block title="Conexión Central con el Hub" name="hub_connection_settings">
+                        <setting string="URL del Hub" id="hub_url_setting" help="Dirección base del servidor central Catalog &amp; OCR Hub">
+                            <field name="hub_url" placeholder="https://hub.example.com"/>
+                        </setting>
+                        <setting string="Clave API (chub_...)" id="hub_api_key_setting" help="Clave de autorización unificada emitida por el Hub">
+                            <field name="hub_api_key" password="True"/>
+                        </setting>
+                        <div class="mt-2">
+                            <button name="action_test_hub_connection" string="Comprobar Conexión y Saldo" type="object" class="btn-primary"/>
+                        </div>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>
